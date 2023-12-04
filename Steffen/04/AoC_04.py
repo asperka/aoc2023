@@ -21,12 +21,7 @@ for l in lines:
     nrs = l.split(':')[1].split('|')
     winning = re.findall('\d+', nrs[0])
     card = re.findall('\d+', nrs[1])
-    #print(winning, card)
-    nrWins = 0
-    for n in winning:
-        if n in card:
-            nrWins += 1
-    #print (l, nrWins, 2**(nrWins-1))
+    nrWins = len([x for x in winning if x in card])
     if nrWins > 0:
         sum += 2**(nrWins-1)
 print (sum)

@@ -29,9 +29,7 @@ def is_symbol(i,x):
     return lines[i][x] not in '.0123456789'
 
 sum = 0
-nr_lines = []
-for l in lines:
-    nr_lines.append(re.findall('\d+', l))
+nr_lines = [re.findall('\d+', l) for l in lines]
 for i in range(len(nr_lines)):
     end = 0
     for nr in nr_lines[i]:

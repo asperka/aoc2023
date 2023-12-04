@@ -21,18 +21,12 @@ for l in lines:
     nrs = l.split(':')[1].split('|')
     winning = re.findall('\d+', nrs[0])
     card = re.findall('\d+', nrs[1])
-    #print(winning, card)
-    nrWins = 0
-    for n in winning:
-        if n in card:
-            nrWins += 1
+    nrWins = len([x for x in winning if x in card])
     points.append(nrWins)
 
 cards = list(range(len(lines)))
-#print(cards, points)
 idx = 0
 while idx<len(cards):
-    #print (idx, cards )
     card = cards[idx]
     p = points[card]
     cards += list(range(card+1, card+p+1))
