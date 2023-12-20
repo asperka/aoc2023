@@ -27,7 +27,6 @@ text = open("input.txt").read()
 lines = text.split('\n')
 
 def parse_rule(text):
-    print('R', text)
     m = re.match('(\w+){(.*)}', text.strip())
     name = m.group(1)
     conditions = m.group(2).split(',')
